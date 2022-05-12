@@ -1,6 +1,6 @@
 [submodule "champ"]
 	path = champ
-	url = git@github.com:AndrewZheng-1011/champ.git
+	url = https://github.com/AndrewZheng-1011/champ.git
 [submodule "champ_teleop"]
 	path = champ_teleop
 	url = https://github.com/chvmp/champ_teleop
