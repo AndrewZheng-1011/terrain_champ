@@ -10,7 +10,7 @@ sudo apt install -y python-rosdep
 cd <your_ws>/src
 git clone --recursive https://github.com/AndrewZheng-1011/terrain_champ.git
 git clone https://github.com/chvmp/champ_teleop
-cd .. # Go to source file
+cd ..
 rosdep install --from-paths src --ignore-src -r -y
 ```
 ### Build workspace ###
