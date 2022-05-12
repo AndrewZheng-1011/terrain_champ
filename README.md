@@ -2,6 +2,7 @@
 Simulation of champ quadruped on different ground parameters/terrain
 
 Modification of champ installation procedure
+
 **Installation (To be tested):**
 ****Install Dependencies****
 ```
