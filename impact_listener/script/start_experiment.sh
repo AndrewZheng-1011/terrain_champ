@@ -9,7 +9,7 @@ environment='emptyWorld'
 worldFilePath="/home/andrewzheng1011/champ_ws/src/terrain_champ/impact_listener/worlds/emptyWorld.world"
 #"/home/andrewzheng1011/champ_ws/src/impact_listener/worlds/planeWorld.world"
 
-time2Term="120" # seconds
+time2Term="7" # seconds
 actions=('forward' 'backward' 'left' 'right')
 gui="false" # false to run in "headless" mode
 spawnHeight="0.6" # Spawn height for plane > 1.0m and < 1.5m (#1.2 seems good for blue plane and 0.6 for empty world)
