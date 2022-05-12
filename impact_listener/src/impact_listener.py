@@ -54,7 +54,7 @@ def callback(data):
     #print("SHAPE OF STATES: ---------------")
     #print(np.shape(states))
     #print(states[0].total_wrench)
-    
+    print("filename: ", fileName)
 
     
     if initiated:
