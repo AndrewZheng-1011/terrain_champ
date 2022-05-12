@@ -1,0 +1,83 @@
+<launch>
+    <!-- WIP:
+            1) Use a yaml file to load all the parameters and then pass these as arguments???
+                - Not sure the most optimal method for setting up architecture with many arguments
+            2) Use topic remapping for multiple impact listener for cleanness
+            3) Fix the fact that impact listener gets quad command as argument instead of parameter
+                - Redundancy with quad_cmd atm
+    -->
+
+    
+    <!-- Simulation Arguments -->
+    <arg name="worldFile"       default="$(find impact_listener)/worlds/planeWorld_kp_100e10_kd_0.world"/>
+    <!--arg name="worldFile"           default="$(find impact_listener)/worlds/planeWorld_kp_100e10_kd_500.world"/-->
+    <param name="worldFile" type="str" value="$(arg worldFile)"/> <!-- Load worldfile path into param server-->
+    <!--<arg name="runInstance" default="0"/>-->
+    <arg name="requiredValue"   default="true"/>
+    <arg name="use_sim_time"    default="true"/>
+    <arg name="headless"        default="false"/>
+    <arg name="gui"             default="true"/>
+
+
+    <!-- Arguments different impact of each corresponding leg-->
+    <arg name="lf_suffix" default="lf"/>
+    <arg name="rf_suffix" default="rf"/>
+    <arg name="lh_suffix" default="lh"/>
+    <arg name="rh_suffix" default="rh"/>
+
+    <arg name="suffix_2" default= ""/> <!-- Type of experiment-->
+
+
+
+    <!-- Quadruped Arguments -->
+    <arg name="quad_cmd" default="forward"/>
+    <arg name="speed_mult" default="1"/>
+    <arg name="time2Terminate" default="0"/> <!-- Doesn't work at the moment | Set time to 0 to not kill node-->
+    <arg name="height_spawn" default="1.0"/>
+
+
+
+    <param name="suffix_2" type="str" value="$(arg suffix_2)"/>
+    <param name="speed_mult" type="double" value="$(arg speed_mult)"/> <!-- Speed Multiplier for robot (robot_spd = spd*mult)-->
+    <param name="time2Kill" type="double" value="$(arg time2Terminate)"/> <!-- Set time to kill to 0 to not kill node-->
+    <param name="quad_cmd" type="str" value="$(arg quad_cmd)"/>
+
+
+
+    <!-- Start launching nodes -->
+    <include file="$(find champ_config)/launch/gazebo.launch">
+        <arg name="gazebo_world" value="$(arg worldFile)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless"     value="$(arg headless)"/>
+        <arg name="gui"          value="$(arg gui)"/>
+        <arg name="world_init_z" value="$(arg height_spawn)"/>
+    </include>
+
+    <include file="$(find champ_teleop)/launch/teleop.launch"/>
+    
+    <!-- Joint State Listener-->
+    <node name="joint_state_listener" pkg="impact_listener" type="joint_state_listener.py" required="$(arg requiredValue)">
+        <param name="joint_state_fileName" type="str" value="$(find impact_listener)/data/joint_state_test"/>
+    </node>
+
+    <!-- Impact Listener for foot links -->
+    <node name="impact_listener_$(arg lf_suffix)" pkg="impact_listener" type="impact_listener.py" args="$(arg lf_suffix) $(arg quad_cmd)" required="$(arg requiredValue)">
+        <param name="impact_fileName" type="str" value="$(find impact_listener)/data/impact_test"/>
+    </node>
+    
+    <node name="impact_listener_$(arg rf_suffix)" pkg="impact_listener" type="impact_listener.py" args="$(arg rf_suffix) $(arg quad_cmd)" required="$(arg requiredValue)">
+        <param name="impact_fileName" type="str" value="$(find impact_listener)/data/impact_test"/>
+    </node>
+
+    <node name="impact_listener_$(arg lh_suffix)" pkg="impact_listener" type="impact_listener.py" args="$(arg lh_suffix) $(arg quad_cmd)" required="$(arg requiredValue)">
+        <param name="impact_fileName" type="str" value="$(find impact_listener)/data/impact_test"/>
+    </node>
+
+    <node name="impact_listener_$(arg rh_suffix)" pkg="impact_listener" type="impact_listener.py" args="$(arg rh_suffix) $(arg quad_cmd)" required="$(arg requiredValue)">
+        <param name="impact_fileName" type="str" value="$(find impact_listener)/data/impact_test"/>
+    </node>
+
+    <!-- Command quadruped node -->
+    <node name="quad_command" pkg="impact_listener" type="operation.py" args="$(arg quad_cmd) $(arg speed_mult)"/>
+
+</launch>

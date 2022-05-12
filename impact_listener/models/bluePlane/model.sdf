@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Blue Plane">
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>2 2 1</scale>
+            <uri>model://bluePlane/meshes/bluePlane.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>2 2 1</scale>
+            <uri>model://bluePlane/meshes/bluePlane.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <inertial>
+        <inertia>
+          <ixx>12030</ixx>
+          <ixy></ixy>
+          <ixz>0</ixz>
+          <iyy>12030</iyy>
+          <iyz>0</iyz>
+          <izz>24000</izz>
+        </inertia>
+        <mass>1000</mass>
+      </inertial>
+    </link>
+
+    <gazebo reference="link">
+      <kp>100000000</kp>
+      <kd>500</kd>
+      <minDepth>10</minDepth>
+      <maxVel>0</maxVel>
+    </gazebo>
+  </model>
+</sdf>

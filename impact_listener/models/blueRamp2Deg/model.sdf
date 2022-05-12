@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Blue Ramp 2 Deg">
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://blueRamp2Deg/meshes/blueRamp2deg.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>2 2 2</scale>
+            <uri>model://blueRamp2Deg/meshes/blueRamp2deg.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <inertial>
+        <inertia>
+          <ixx>12029.25</ixx>
+          <ixy>0</ixy>
+          <ixz>418.6</ixz>
+          <iyy>12020.74</iyy>
+          <iyz>0</iyz>
+          <izz>23991.49</izz>
+        </inertia>
+        <mass>1000</mass>
+      </inertial>
+    </link>
+    <gazebo reference="link">
+      <kp>100000000</kp>
+      <kd>500</kd>
+      <minDepth>10</minDepth>
+      <maxVel>0</maxVel>
+    </gazebo>
+  </model>
+</sdf>

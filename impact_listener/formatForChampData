@@ -1,0 +1,26 @@
+Format of contact state force
+
+
+
+time name_collision_link name_collision_with spd f_x f_y f_z
+
+time: Time of collision
+name_collision_link: Link that collided with an object
+name_collision_with: Link that is colliding with user
+direction: Direction the robot is moving (forward, left, right, backward)
+spd: Speed the robot is moving in certain certain direction
+f_x: Force of collision in the x-direction
+f_y: Force of collision in the y-direction
+f_z: Force of collision in the z-direction
+
+
+
+
+
+Format for joint states
+
+names: lf_hip_joint lf_lower_leg_joint lf_upper_leg_joint lh_hip_joint lh_lower_leg_joint lh_upper_leg_joint rf_hip_joint rf_lower_leg_joint rf_upper_leg_joint rh_hip_joint rh_lower_leg_joint rh_upper_leg_joint
+
+States are listed in the ordering of the names starting with:
+- position: position of the joints, velocity: velocity of the joints, effort: effort applied in the joints
+- i.e. format: time, joint_states_position, joint_states_velocity
