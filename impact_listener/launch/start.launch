@@ -18,7 +18,6 @@
     <arg name="headless"        default="false"/>
     <arg name="gui"             default="true"/>
 
-
     <!-- Arguments different impact of each corresponding leg-->
     <arg name="lf_suffix" default="lf"/>
     <arg name="rf_suffix" default="rf"/>
