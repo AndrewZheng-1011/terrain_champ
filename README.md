@@ -20,6 +20,11 @@ catkin_make
 source <your_ws>/devel/setup.bash
 ```
 
+## Quick Start ##
+'''
+roscd impact_listener/script/
+./start_experiment.sh
+'''
 
 
 
