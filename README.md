@@ -23,7 +23,8 @@ source <your_ws>/devel/setup.bash
 
 
 
-## Notes: ##
+## Notes/To Do: ##
+- Apply rosbag to record states
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
 - Add gazebo model path:
