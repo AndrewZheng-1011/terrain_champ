@@ -1,10 +1,10 @@
 <launch>
     <arg name="robot_name"              default="/"/>  <!-- Change this for namespacing. -->
-    <arg name="base_frame"             default="base_link"/> <!-- Link name of floating base. Do not touch this. -->
-    <arg name="joints_map_file"        default="$(find stanford_pupper_config)/config/joints/joints.yaml"/> <!--Path to list of joint names. Do not touch this. -->
-    <arg name="links_map_file"         default="$(find stanford_pupper_config)/config/links/links.yaml"/> <!-- Path to list of link names. Do not touch this. -->
-    <arg name="gait_config_file"       default="$(find stanford_pupper_config)/config/gait/gait.yaml"/>  <!-- Path to gait parameters. Do not touch this. -->
-    <arg name="description_file"       default="$(find standford_pupper_description)/urdf/standford_pupper.urdf"/> <!-- Path to URDF file Do not touch this. -->
+    <arg name="base_frame"             default="trunk"/> <!-- Link name of floating base. Do not touch this. -->
+    <arg name="joints_map_file"        default="$(find mini_cheetah_test_config)/config/joints/joints.yaml"/> <!--Path to list of joint names. Do not touch this. -->
+    <arg name="links_map_file"         default="$(find mini_cheetah_test_config)/config/links/links.yaml"/> <!-- Path to list of link names. Do not touch this. -->
+    <arg name="gait_config_file"       default="$(find mini_cheetah_test_config)/config/gait/gait.yaml"/>  <!-- Path to gait parameters. Do not touch this. -->
+    <arg name="description_file"       default="$(find yobotics_description)/urdf/yobotics.urdf"/> <!-- Path to URDF file Do not touch this. -->
     <arg name="gazebo"                 default="false" /> <!-- Set to true during simulation. This is auto-set to true from gazebo.launch. -->
     <arg name="rviz"                   default="false"/> <!-- Set to true to run rviz in parallel. -->
     <arg name="rviz_ref_frame"         default="odom"/> <!-- Default RVIZ reference frame. -->
@@ -19,7 +19,6 @@
 
     <arg if="$(eval arg('robot_name') == '/')"  name="frame_prefix" value="" />
     <arg unless="$(eval arg('robot_name') == '/')" name="frame_prefix" value="$(arg robot_name)/" />
-    <param name="description_file_test" type="str" value="$(arg description_file)"/> <!-- See the urdf file path -->
 
     <include file="$(find champ_bringup)/launch/bringup.launch">
         <arg name="robot_name"             value="$(arg robot_name)"/>
@@ -42,8 +41,8 @@
     </include>
     
     <group if="$(arg hardware_connected)">
-        <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0 0 0 0 $(arg frame_prefix)base_link $(arg frame_prefix)laser" />
-        <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu"   args="0 0 0 0 0 0 $(arg frame_prefix)base_link $(arg frame_prefix)imu_link" />
+        <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0 0 0 0 $(arg frame_prefix)trunk $(arg frame_prefix)laser" />
+        <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu"   args="0 0 0 0 0 0 $(arg frame_prefix)trunk $(arg frame_prefix)imu_link" />
         <!-- include your hardware launch file here -->
     </group>
 </launch>
