@@ -11,7 +11,7 @@
       <visual name="Hip_L">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="file:///home/andrewzheng1011/champ_ws/src/terrain_champ/robots/descriptions/pupperv2_description/meshes/Hip_L.obj" scale = "1.0 1.0 1.0"/>
+          <mesh filename="file:///home/andrewzheng1011/champ_ws/src/terrain_champ/robots/descriptions/pupperv2_description/meshes_2/Hip_L.obj" scale = "1.0 1.0 1.0"/>
         </geometry>
         <material name="PupperMaterial"/>
       </visual>
