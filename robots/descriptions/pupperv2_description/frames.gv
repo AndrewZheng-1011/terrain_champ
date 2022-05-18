@@ -1,0 +1,23 @@
+digraph G {
+"leftFrontLowerLeg" -> "leftFrontToe"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1652880129.403 sec old)\nBuffer length: 0.000 sec\n"];
+"leftFrontUpperLeg" -> "leftFrontLowerLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"leftRearLowerLeg" -> "leftRearToe"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1652880129.403 sec old)\nBuffer length: 0.000 sec\n"];
+"leftRearUpperLeg" -> "leftRearLowerLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"pupper_v2_dji_chassis" -> "pupper_v2_dji_chassis_inertia"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1652880129.403 sec old)\nBuffer length: 0.000 sec\n"];
+"rightFrontLowerLeg" -> "rightFrontToe"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1652880129.403 sec old)\nBuffer length: 0.000 sec\n"];
+"rightFrontUpperLeg" -> "rightFrontLowerLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"rightRearLowerLeg" -> "rightRearToe"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1652880129.403 sec old)\nBuffer length: 0.000 sec\n"];
+"rightRearUpperLeg" -> "rightRearLowerLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"pupper_v2_dji_chassis" -> "leftFrontLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"leftFrontLeg" -> "leftFrontUpperLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"pupper_v2_dji_chassis" -> "leftRearLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"leftRearLeg" -> "leftRearUpperLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"pupper_v2_dji_chassis" -> "rightFrontLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"rightFrontLeg" -> "rightFrontUpperLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"pupper_v2_dji_chassis" -> "rightRearLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+"rightRearLeg" -> "rightRearUpperLeg"[label="Broadcaster: /pupperv2_robot_state_publisher\nAverage rate: 10.202 Hz\nMost recent transform: 1652880129.336 ( 0.067 sec old)\nBuffer length: 4.901 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1652880129.403"[ shape=plaintext ] ;
+ }->"pupper_v2_dji_chassis";
+}
