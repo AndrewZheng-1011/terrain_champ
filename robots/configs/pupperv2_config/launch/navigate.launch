@@ -4,6 +4,7 @@
 
     <arg if="$(eval arg('robot_name') == '/')"  name="frame_prefix" value="" />
     <arg unless="$(eval arg('robot_name') == '/')" name="frame_prefix" value="$(arg robot_name)/" />
+    <param name="testing" type="str" value="$(arg robot_name)"/>
 
     <group ns="$(arg robot_name)">
         <!-- Map server -->

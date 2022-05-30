@@ -6,6 +6,7 @@
    <!-- Include Files -->
    <xacro:include filename="$(find pupperv2_description)/urdf/transmission.xacro"/>
    <xacro:include filename="$(find pupperv2_description)/urdf/friction.xacro"/>
+   <xacro:include filename="$(find pupperv2_description)/urdf/accessories.xacro"/>
 
 
    <!-- Enable Gazebo ROS Control -->
@@ -15,11 +16,28 @@
        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
      </plugin>
    </gazebo>
+
+  <!-- Accessories-->
+  <xacro:accessories base_name="base_link" base_length="${0.13641*2}" 
+                    base_height="${0.04661*2}"/>
  
-   
-   <!-- Solidworks to URDF (Mostly) -->
   
-    <link name="base_link">
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <topicName>odom/ground_truth</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+</gazebo>   
+                
+  <!-- Solidworks to URDF (Mostly) -->
+  
+  <link name="base_link">
     <visual>
       <origin
         xyz="0 0 0"

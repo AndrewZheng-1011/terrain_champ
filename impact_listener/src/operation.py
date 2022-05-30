@@ -31,6 +31,9 @@ def talker(command, spd_mult):
         rate.sleep()
 
 if __name__ == '__main__':
+    '''
+    Runs system to command quadruped to do a gait operation
+    '''
     print(sys.argv)
     command = sys.argv[1]
     spd_mult = sys.argv[2]

@@ -48,7 +48,7 @@ def callback(data):
 def write(fileName, timeIndex, names, positions, velocities, efforts, write_or_append):
     text = ""
     with open(fileName, write_or_append) as f:
-        text += "%3.4f" % timeIndex
+        text += "%3.4f " % timeIndex
         #print(len(names))
         for i in range(len(names)):
             text += "%3.4f " % positions[i]
