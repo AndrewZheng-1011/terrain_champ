@@ -7,3 +7,6 @@
 [submodule "champ_setup_assistant"]
 	path = champ_setup_assistant
 	url = https://github.com/chvmp/champ_setup_assistant.git
+[submodule "robot_state_plugin"]
+	path = robot_state_plugin
+	url = https://github.com/chvmp/robot_state_plugin.git
