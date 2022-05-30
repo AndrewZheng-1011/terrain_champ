@@ -1,19 +1,14 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 2.8.3)
+
 project(pupperv2_description)
 
+find_package(catkin REQUIRED)
 
-find_package(catkin REQUIRED
-    COMPONENTS
-)
+catkin_package()
 
+find_package(roslaunch)
 
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES pupperv2_description
-  CATKIN_DEPENDS
-#  DEPENDS system_lib
-)
-
-install(DIRECTORY launch urdf config
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
+foreach(dir config launch meshes urdf)
+	install(DIRECTORY ${dir}/
+		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
+endforeach(dir)
