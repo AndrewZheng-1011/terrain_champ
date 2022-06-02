@@ -20,7 +20,19 @@ catkin_make
 source <your_ws>/devel/setup.bash
 ```
 
+### Launch demo ###
+Launches a demo of champ walking forward on a plane with specified ground parameters and records in /data folder
+```
+roslaunch impact_listener start.launch
+```
 
+### Launch Script ###
+Launches a shell script to recurseively record data of champ walking on different terrains at different gaits (forward,left,right,backwards)
+
+```
+roscd impact_listener/script
+./start_experiment.sh
+```
 
 
 ## Notes: ##
