@@ -19,7 +19,7 @@ cd <your_ws>
 catkin_make
 source <your_ws>/devel/setup.bash
 ```
-
+## Start Demo ##
 ### Launch demo ###
 Launches a demo of champ walking forward on a plane with specified ground parameters and records in /data folder
 ```
