@@ -1,0 +1,53 @@
+<launch>
+    <arg name="robot_name"         default="/"/> <!-- Change this for namespacing. -->
+    <arg name="rviz"               default="false"/> <!-- Set to true to run rviz in parallel. -->
+    <arg name="lite"               default="false" />  <!-- Set to true if you're using CHAMP lite version. Only useful for microcontrollers. -->
+    <arg name="ros_control_file"   default="$(find pupperv2_config)/config/ros_control/ros_control.yaml" /> <!-- Path to ROS Control configurations. Do not touch. -->
+    <arg name="gazebo_world"       default="$(find pupperv2_config)/worlds/empty.world" /> <!-- Path to Gazebo world you want to load. -->
+    <arg name="gui"                default="true"/>
+    <arg name="world_init_x"       default="0.0" /> <!-- X Initial position of the robot in Gazebo World -->
+    <arg name="world_init_y"       default="0.0" /> <!-- Y Initial position of the robot in Gazebo World -->
+    <arg name="world_init_z"       default="1.0" /> <!-- Y Initial position of the robot in Gazebo World -->
+    <arg name="world_init_heading" default="0.0" /> <!-- Initial heading of the robot in Gazebo World -->
+    <arg name="headless"           default="false"/>
+    <arg name="paused"             default="false"/>
+    <arg name="debug"              default="false"/> <!-- Add debug option -->
+    <arg name="verbose"            default="false"/>
+
+    <param name="use_sim_time" value="true" />
+
+
+    <arg name="description_file"       default="$(find pupperv2_description4)/urdf/pupperv2_description4.urdf"/>
+
+    <include file="$(find champ_description)/launch/description.launch">
+        <arg name="description_file" value="$(arg description_file)"/>
+    </include>
+
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg gazebo_world)"/>
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="debug"    value="$(arg debug)"/>
+        <arg name="verbose"  value="$(arg verbose)"/>
+    </include>
+
+    <group ns="$(arg robot_name)">
+        <node  name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg robot_name)  
+        -param robot_description -robot_namespace $(arg robot_name) 
+        -x $(arg world_init_x) -y $(arg world_init_y) -z $(arg world_init_z) -Y $(arg world_init_heading)" />
+        <rosparam file="$(arg ros_control_file)" command="load"/>
+
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
+            joint_states_controller
+            joint_group_position_controller
+            ">
+        </node>
+
+        <node pkg="champ_gazebo" name="contact_sensor" type="contact_sensor" output="screen"/>
+    </group>
+
+
+</launch>

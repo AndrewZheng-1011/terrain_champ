@@ -6,7 +6,7 @@
     default="False" />
   <param
     name="robot_description"
-    textfile="$(find pupperv2_description)/urdf/pupperv2_description.urdf" />
+    textfile="$(find pupperv2_description)/urdf/pupperv2_description_lite.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />

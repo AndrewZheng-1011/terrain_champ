@@ -13,6 +13,7 @@
 
 
     <param name="use_sim_time" value="true" />
+    <param name="accessories_enabled" value="$(optenv ACCESSORIES_ENABLED 1)"/> <!-- Have to set up structure to enable launch file to load environment variable into urdf-->
 
     <include file="$(find pupperv2_config)/launch/bringup.launch">
         <arg name="robot_name"             value="$(arg robot_name)"/>

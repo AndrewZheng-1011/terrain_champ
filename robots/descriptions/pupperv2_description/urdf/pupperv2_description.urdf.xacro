@@ -3,23 +3,37 @@
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pupperv2_description">
-   <!-- Include Files -->
-   <xacro:include filename="$(find pupperv2_description)/urdf/transmission.xacro"/>
-   <xacro:include filename="$(find pupperv2_description)/urdf/friction.xacro"/>
-   <xacro:include filename="$(find pupperv2_description)/urdf/accessories.xacro"/>
+
+  <!-- Include Files -->
+  <xacro:include filename="$(find pupperv2_description)/urdf/transmission.xacro"/>
+  <xacro:include filename="$(find pupperv2_description)/urdf/friction.xacro"/>
+  <xacro:include filename="$(find pupperv2_description)/urdf/accessories.xacro"/>
 
 
-   <!-- Enable Gazebo ROS Control -->
-   <gazebo>
-     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-       <legacyModeNS>true</legacyModeNS>
-       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-     </plugin>
-   </gazebo>
+  <!-- Scaling Inertia Parameters from Solidworks-->
+  <xacro:property name="hip_scale" value="3.38"/>
+  <xacro:property name="lower_leg_scale" value="2.273"/>
+  <xacro:property name="toe_scale" value="5.52517E-02"/>
+  <xacro:property name="upper_leg_scale" value="2.59764"/>
+  <xacro:property name="base_scale" value="2.61057"/>
+
+  
+  <!-- Enable Gazebo ROS Control -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <legacyModeNS>true</legacyModeNS>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- Enable Accessories Parameter-->
+  <xacro:arg name="accessories_enabled" default="$(optenv ACCESSORIES_ENABLED 1)"/>
 
   <!-- Accessories-->
-  <xacro:accessories base_name="base_link" base_length="${0.13641*2}" 
-                    base_height="${0.04661*2}"/>
+  <xacro:if value="$(arg accessories_enabled)">
+    <xacro:accessories base_name="base_link" base_length="${0.13641*2}" 
+                        base_height="${0.04661*2}"/>
+  </xacro:if>
  
   
   <gazebo>
@@ -33,7 +47,7 @@
         <xyzOffsets>0 0 0</xyzOffsets>
         <rpyOffsets>0 0 0</rpyOffsets>
     </plugin>
-</gazebo>   
+  </gazebo>   
                 
   <!-- Solidworks to URDF (Mostly) -->
   
@@ -68,15 +82,14 @@
         <origin
           xyz="4.4516E-07 -2.0991E-07 3.7751E-06"
           rpy="0 0 0" />
-        <mass
-          value="0.37691" />
+        <mass value="${0.37691*base_scale}" />
         <inertia
-          ixx="0.00038775"
-          ixy="1.1873E-06"
-          ixz="-9.237E-07"
-          iyy="0.00085802"
-          iyz="1.7272E-07"
-          izz="0.0010086" />
+          ixx="${0.00038775*base_scale}"
+          ixy="${1.1873E-06*base_scale}"
+          ixz="${-9.237E-07*base_scale}"
+          iyy="${0.00085802*base_scale}"
+          iyz="${1.7272E-07*base_scale}"
+          izz="${0.0010086*base_scale}" />
       </inertial>
   </link>
   <joint name="base_link_base_inertia" type="fixed">
@@ -93,14 +106,14 @@
         xyz="0.01877 0.0032945 0.00038989"
         rpy="0 0 0" />
       <mass
-        value="0.032035" />
+        value="${0.032035*hip_scale}" />
       <inertia
-        ixx="5.9933E-06"
-        ixy="4.4808E-07"
-        ixz="2.4371E-10"
-        iyy="2.9538E-06"
-        iyz="6.1996E-08"
-        izz="5.7278E-06" />
+        ixx="${5.9933E-06*hip_scale}"
+        ixy="${4.4808E-07*hip_scale}"
+        ixz="${2.4371E-10*hip_scale}"
+        iyy="${2.9538E-06*hip_scale}"
+        iyz="${6.1996E-08*hip_scale}"
+        izz="${5.7278E-06*hip_scale}" />
     </inertial>
     <visual>
       <origin
@@ -151,14 +164,14 @@
         xyz="0.00011578 0.025203 -0.048064"
         rpy="0 0 0" />
       <mass
-        value="0.054665" />
+        value="${0.054665*upper_leg_scale}" />
       <inertia
-        ixx="2.4386E-05"
-        ixy="1.682E-10"
-        ixz="2.6061E-07"
-        iyy="2.3437E-05"
-        iyz="2.7137E-07"
-        izz="6.6679E-06" />
+        ixx="${2.4386E-05*upper_leg_scale}"
+        ixy="${1.682E-10*upper_leg_scale}"
+        ixz="${2.6061E-07*upper_leg_scale}"
+        iyy="${2.3437E-05*upper_leg_scale}"
+        iyz="${2.7137E-07*upper_leg_scale}"
+        izz="${6.6679E-06*upper_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -209,14 +222,14 @@
         xyz="0.00028051 0.0039614 -0.040452"
         rpy="0 0 0" />
       <mass
-        value="0.016718" />
+        value="${0.016718*lower_leg_scale}" />
       <inertia
-        ixx="1.8319E-05"
-        ixy="-1.9835E-08"
-        ixz="2.3453E-07"
-        iyy="1.8546E-05"
-        iyz="6.7626E-07"
-        izz="5.5282E-07" />
+        ixx="${1.8319E-05*lower_leg_scale}"
+        ixy="${-1.9835E-08*lower_leg_scale}"
+        ixz="${2.3453E-07*lower_leg_scale}"
+        iyy="${1.8546E-05*lower_leg_scale}"
+        iyz="${6.7626E-07*lower_leg_scale}"
+        izz="${5.5282E-07*lower_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -267,14 +280,14 @@
         xyz="-0.002296 2.7756E-17 -0.0027362"
         rpy="0 0 0" />
       <mass
-        value="0.0018099" />
+        value="${0.0018099*toe_scale}" />
       <inertia
-        ixx="5.2131E-08"
-        ixy="-1.9882E-24"
-        ixz="1.137E-08"
-        iyy="4.259E-08"
-        iyz="-9.4483E-25"
-        izz="5.6141E-08" />
+        ixx="${5.2131E-08*toe_scale}"
+        ixy="${-1.9882E-24*toe_scale}"
+        ixz="${1.137E-08*toe_scale}"
+        iyy="${4.259E-08*toe_scale}"
+        iyz="${-9.4483E-25*toe_scale}"
+        izz="${5.6141E-08*toe_scale}" />
     </inertial>
     <visual>
       <origin
@@ -320,14 +333,14 @@
         xyz="-0.022505 0.0032945 0.00038989"
         rpy="0 0 0" />
       <mass
-        value="0.032035" />
+        value="${0.032035*hip_scale}" />
       <inertia
-        ixx="5.9933E-06"
-        ixy="4.4808E-07"
-        ixz="2.4371E-10"
-        iyy="2.9538E-06"
-        iyz="6.1996E-08"
-        izz="5.7278E-06" />
+        ixx="${5.9933E-06*hip_scale}"
+        ixy="${4.4808E-07*hip_scale}"
+        ixz="${2.4371E-10*hip_scale}"
+        iyy="${2.9538E-06*hip_scale}"
+        iyz="${6.1996E-08*hip_scale}"
+        izz="${5.7278E-06*hip_scale}" />
     </inertial>
     <visual>
       <origin
@@ -378,14 +391,14 @@
         xyz="0.00011578 0.025203 -0.048064"
         rpy="0 0 0" />
       <mass
-        value="0.054665" />
+        value="${0.054665*upper_leg_scale}" />
       <inertia
-        ixx="2.4386E-05"
-        ixy="1.682E-10"
-        ixz="2.6061E-07"
-        iyy="2.3437E-05"
-        iyz="2.7137E-07"
-        izz="6.6679E-06" />
+        ixx="${2.4386E-05*upper_leg_scale}"
+        ixy="${1.682E-10*upper_leg_scale}"
+        ixz="${2.6061E-07*upper_leg_scale}"
+        iyy="${2.3437E-05*upper_leg_scale}"
+        iyz="${2.7137E-07*upper_leg_scale}"
+        izz="${6.6679E-06*upper_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -436,14 +449,14 @@
         xyz="0.00028051 0.0039614 -0.040452"
         rpy="0 0 0" />
       <mass
-        value="0.016718" />
+        value="${0.016718*lower_leg_scale}" />
       <inertia
-        ixx="1.8319E-05"
-        ixy="-1.9835E-08"
-        ixz="2.3453E-07"
-        iyy="1.8546E-05"
-        iyz="6.7626E-07"
-        izz="5.5282E-07" />
+        ixx="${1.8319E-05*lower_leg_scale}"
+        ixy="${-1.9835E-08*lower_leg_scale}"
+        ixz="${2.3453E-07*lower_leg_scale}"
+        iyy="${1.8546E-05*lower_leg_scale}"
+        iyz="${6.7626E-07*lower_leg_scale}"
+        izz="${5.5282E-07*lower_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -494,14 +507,14 @@
         xyz="-0.002296 0 -0.0027362"
         rpy="0 0 0" />
       <mass
-        value="0.0018099" />
+        value="${0.0018099*toe_scale}" />
       <inertia
-        ixx="5.2131E-08"
-        ixy="-1.082E-24"
-        ixz="1.137E-08"
-        iyy="4.259E-08"
-        iyz="-9.2836E-25"
-        izz="5.6141E-08" />
+        ixx="${5.2131E-08*toe_scale}"
+        ixy="${-1.082E-24*toe_scale}"
+        ixz="${1.137E-08*toe_scale}"
+        iyy="${4.259E-08*toe_scale}"
+        iyz="${-9.2836E-25*toe_scale}"
+        izz="${5.6141E-08*toe_scale}" />
     </inertial>
     <visual>
       <origin
@@ -547,14 +560,14 @@
         xyz="0.018798 -0.0032741 0.00039709"
         rpy="0 0 0" />
       <mass
-        value="0.032069" />
+        value="${0.032069*hip_scale}" />
       <inertia
-        ixx="5.9912E-06"
-        ixy="-4.4714E-07"
-        ixz="1.8534E-10"
-        iyy="2.954E-06"
-        iyz="-6.2909E-08"
-        izz="5.7295E-06" />
+        ixx="${5.9912E-06*hip_scale}"
+        ixy="${-4.4714E-07*hip_scale}"
+        ixz="${1.8534E-10*hip_scale}"
+        iyy="${2.954E-06*hip_scale}"
+        iyz="${-6.2909E-08*hip_scale}"
+        izz="${5.7295E-06*hip_scale}" />
     </inertial>
     <visual>
       <origin
@@ -605,14 +618,14 @@
         xyz="-0.00011578 -0.025203 -0.048064"
         rpy="0 0 0" />
       <mass
-        value="0.054665" />
+        value="${0.054665*upper_leg_scale}" />
       <inertia
-        ixx="2.4386E-05"
-        ixy="1.682E-10"
-        ixz="-2.6061E-07"
-        iyy="2.3437E-05"
-        iyz="-2.7137E-07"
-        izz="6.6679E-06" />
+        ixx="${2.4386E-05*upper_leg_scale}"
+        ixy="${1.682E-10*upper_leg_scale}"
+        ixz="${-2.6061E-07*upper_leg_scale}"
+        iyy="${2.3437E-05*upper_leg_scale}"
+        iyz="${-2.7137E-07*upper_leg_scale}"
+        izz="${6.6679E-06*upper_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -663,14 +676,14 @@
         xyz="0.00028375 -0.0039771 -0.040393"
         rpy="0 0 0" />
       <mass
-        value="0.016741" />
+        value="${0.016741*lower_leg_scale}" />
       <inertia
-        ixx="1.8313E-05"
-        ixy="1.9858E-08"
-        ixz="2.3431E-07"
-        iyy="1.854E-05"
-        iyz="-6.769E-07"
-        izz="5.5333E-07" />
+        ixx="${1.8313E-05*lower_leg_scale}"
+        ixy="${1.9858E-08*lower_leg_scale}"
+        ixz="${2.3431E-07*lower_leg_scale}"
+        iyy="${1.854E-05*lower_leg_scale}"
+        iyz="${-6.769E-07*lower_leg_scale}"
+        izz="${5.5333E-07*lower_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -721,14 +734,14 @@
         xyz="-0.002296 6.9389E-18 -0.0027362"
         rpy="0 0 0" />
       <mass
-        value="0.0018099" />
+        value="${0.0018099*toe_scale}" />
       <inertia
-        ixx="5.2131E-08"
-        ixy="6.2047E-25"
-        ixz="1.137E-08"
-        iyy="4.259E-08"
-        iyz="9.8352E-25"
-        izz="5.6141E-08" />
+        ixx="${5.2131E-08*toe_scale}"
+        ixy="${6.2047E-25*toe_scale}"
+        ixz="${1.137E-08*toe_scale}"
+        iyy="${4.259E-08*toe_scale}"
+        iyz="${9.8352E-25*toe_scale}"
+        izz="${5.6141E-08*toe_scale}" />
     </inertial>
     <visual>
       <origin
@@ -774,14 +787,14 @@
         xyz="-0.022479 -0.0032741 0.00039709"
         rpy="0 0 0" />
       <mass
-        value="0.032069" />
+        value="${0.032069*hip_scale}" />
       <inertia
-        ixx="5.9912E-06"
-        ixy="-4.4714E-07"
-        ixz="1.8534E-10"
-        iyy="2.954E-06"
-        iyz="-6.2909E-08"
-        izz="5.7295E-06" />
+        ixx="${5.9912E-06*hip_scale}"
+        ixy="${-4.4714E-07*hip_scale}"
+        ixz="${1.8534E-10*hip_scale}"
+        iyy="${2.954E-06*hip_scale}"
+        iyz="${-6.2909E-08*hip_scale}"
+        izz="${5.7295E-06*hip_scale}" />
     </inertial>
     <visual>
       <origin
@@ -832,14 +845,14 @@
         xyz="-0.00011578 -0.025203 -0.048064"
         rpy="0 0 0" />
       <mass
-        value="0.054665" />
+        value="${0.054665*upper_leg_scale}" />
       <inertia
-        ixx="2.4386E-05"
-        ixy="1.682E-10"
-        ixz="-2.6061E-07"
-        iyy="2.3437E-05"
-        iyz="-2.7137E-07"
-        izz="6.6679E-06" />
+        ixx="${2.4386E-05*upper_leg_scale}"
+        ixy="${1.682E-10*upper_leg_scale}"
+        ixz="${-2.6061E-07*upper_leg_scale}"
+        iyy="${2.3437E-05*upper_leg_scale}"
+        iyz="${-2.7137E-07*upper_leg_scale}"
+        izz="${6.6679E-06*upper_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -890,14 +903,14 @@
         xyz="0.00028375 -0.0039771 -0.040393"
         rpy="0 0 0" />
       <mass
-        value="0.016741" />
+        value="${0.016741*lower_leg_scale}" />
       <inertia
-        ixx="1.8313E-05"
-        ixy="1.9858E-08"
-        ixz="2.3431E-07"
-        iyy="1.854E-05"
-        iyz="-6.769E-07"
-        izz="5.5333E-07" />
+        ixx="${1.8313E-05*lower_leg_scale}"
+        ixy="${1.9858E-08*lower_leg_scale}"
+        ixz="${2.3431E-07*lower_leg_scale}"
+        iyy="${1.854E-05*lower_leg_scale}"
+        iyz="${-6.769E-07*lower_leg_scale}"
+        izz="${5.5333E-07*lower_leg_scale}" />
     </inertial>
     <visual>
       <origin
@@ -948,14 +961,14 @@
         xyz="-0.002296 0 -0.0027362"
         rpy="0 0 0" />
       <mass
-        value="0.0018099" />
+        value="${0.0018099*toe_scale}" />
       <inertia
-        ixx="5.2131E-08"
-        ixy="6.6018E-25"
-        ixz="1.137E-08"
-        iyy="4.259E-08"
-        iyz="2.4451E-24"
-        izz="5.6141E-08" />
+        ixx="${5.2131E-08*toe_scale}"
+        ixy="${6.6018E-25*toe_scale}"
+        ixz="${1.137E-08*toe_scale}"
+        iyy="${4.259E-08*toe_scale}"
+        iyz="${2.4451E-24*toe_scale}"
+        izz="${5.6141E-08*toe_scale}" />
     </inertial>
     <visual>
       <origin

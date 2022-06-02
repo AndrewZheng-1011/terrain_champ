@@ -17,6 +17,7 @@
     <arg name="joint_controller_topic" default="joint_group_position_controller/command" /> <!-- Change to remap command topic for actuator controller (ROS control).  -->
     <arg name="hardware_connected"     default="false" /> <!-- Flag useful to launch hardware connected launch files. This auto disables publishing joint_states. -->
 
+    
     <arg if="$(eval arg('robot_name') == '/')"  name="frame_prefix" value="" />
     <arg unless="$(eval arg('robot_name') == '/')" name="frame_prefix" value="$(arg robot_name)/" />
 
