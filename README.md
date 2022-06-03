@@ -19,6 +19,11 @@ cd <your_ws>
 catkin_make
 source <your_ws>/devel/setup.bash
 ```
+### Add dae files to Gazebo model path ###
+```
+gedit ~/.bashrc
+export GAZEBO_MODEL_PATH=~/<workspace_direction>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
+```
 
 ## Quick Start ##
 ```
@@ -32,7 +37,3 @@ roscd impact_listener/script/
 - Apply rosbag to record states
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
-- Add gazebo model path to ~/.bashrc file:
-```
-export GAZEBO_MODEL_PATH=~/<workspace_direction>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
-```
