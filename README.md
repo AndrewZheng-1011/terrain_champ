@@ -38,7 +38,7 @@ roscd impact_listener/script
 ## Notes: ##
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
-- Add gazebo model path:
+- Add gazebo model path to ~/.bashrc file:
 ```
 export GAZEBO_MODEL_PATH=~/<workspace_directory>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
 ```
