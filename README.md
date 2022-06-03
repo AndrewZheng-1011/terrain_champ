@@ -19,7 +19,7 @@ cd <your_ws>
 catkin_make
 source <your_ws>/devel/setup.bash
 ```
-### Add dae files to Gazebo model path ###
+### Add mesh files to Gazebo model path ###
 ```
 gedit ~/.bashrc
 export GAZEBO_MODEL_PATH=~/<workspace_direction>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
