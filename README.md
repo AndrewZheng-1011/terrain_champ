@@ -38,7 +38,7 @@ The data that can be collected through the shell script ranges by changing these
 4) Action - Shell script loops through forward, left, right, and backward gait motion
 5) Commanded velocity - Shell script loops through velocities ranging from 0.1m/s to 0.7 m/s
 
-![lowerLegPosGraph](https://raw.githubusercontent.com/AndrewZheng-1011/terrain_champ/doc/cmdLowerLegPos.png)
+![lowerLegPosGraph](doc/cmdLowerLegPos.png)
 
 
 ## Notes/To Do: ##
