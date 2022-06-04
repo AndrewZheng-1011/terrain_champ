@@ -39,6 +39,12 @@ The data that can be collected through the shell script ranges by changing these
 5) Commanded velocity - Shell script loops through velocities ranging from 0.1m/s to 0.7 m/s
 
 ![lowerLegPosGraph](doc/cmdLowerLegPos.png)
+![lowerLegVelGraph](doc/cmdLowerLegVelGraph.png)
+![gaitPatternLowerLegGraph](doc/gaitPatternLowerLegPos.png)
+![kp_graph](doc/varying_kp_LowerLegPos.png)
+![kd_graph](doc/varying_kd_LowerLegPos.png)
+![terrain_graph](doc/diff_Terrain_LowerLegPos.png)
+
 
 
 ## Notes/To Do: ##
