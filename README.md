@@ -45,13 +45,13 @@ For quadruped locomotion in different terrains, different initial condition duri
 
 ### Terrain Parameters
 Stiffness and damping parameteres are defined by the stiffness and damping tags in sdf models (k<sub>p</sub> and k<sub>d</sub>.
+From the graph, increase in damping affect is seen to hinder the quadruped swing and stance duration.
 ![kp_graph](doc/varying_kp_LowerLegPos.png)
 ![kd_graph](doc/varying_kd_LowerLegPos.png)
 
 ### Action ###
 Different gait motion is defined through shell script. Currently, shell script only runs through the actions forward, left, right, and backwards.
 ![gaitPatternLowerLegGraph](doc/gaitPatternLowerLegPos.png)
-- Terrain parameters will affect the swing and stance gait motion of quadruped. For damping parameters, increase in damping affects the hinders the quadruped's swing and stance duration
 
 ### Commanded Velocity ###
 Results showcase that increase in commanded velocity of champ increases the swing phase. Stance phase is consistent as champ controller is predefines a fixed stance duration.
