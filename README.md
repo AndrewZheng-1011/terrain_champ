@@ -34,6 +34,10 @@ roscd impact_listener/script/
 ./start_experiment.sh
 ```
 ## Data
+The dataset obtains the following states from champ
+- Joint States (e.g. hip, upper leg, lower leg joints)
+- Ground Reaction Forces
+
 The data that can be collected through the shell script ranges by changing these parameters:
 - World - Currently support planar world and a ramp world
 - Terrain Parameters - Stiffness and damping parameters are defined within the model sdf files (plane/ramp)
@@ -66,6 +70,7 @@ Quantitative analysis is left to be done in future works.
 - To run readSimData.ipynb and get the resulting graphs, must collect the data specified in code
 
 ## Notes/Future Works: ##
+- Get CoM states
 - Apply rosbag to record states
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
