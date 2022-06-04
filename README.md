@@ -39,6 +39,8 @@ The dataset obtains the following states from champ
 - Joint States (e.g. hip, upper leg, lower leg joints)
 - Ground Reaction Forces
 
+Data format for parsing data can be found in the file formatForChampData
+
 The data that can be collected through the shell script ranges by changing these parameters:
 - World - Currently support planar world and a ramp world
 - Terrain Parameters - Stiffness and damping parameters are defined within the model sdf files (plane/ramp)
