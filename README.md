@@ -26,7 +26,7 @@ export GAZEBO_MODEL_PATH=~/<workspace_directory>/src/terrain_champ/impact_listen
 ```
 
 ## Quick Start ##
-Quick start will run the champ simulator across default terrain (specified in the shell file) for different gaits and commanded velocity
+Quick start will run the champ simulator across default terrain (specified in the shell file) for different gaits and commanded velocity. This shell script will simulate different environments/actions and collect quadruped joint states and grf (ground reaction forces) during locomotion. The recorded data will then be located in the data directory.
 ```
 roscd impact_listener/script/
 ./start_experiment.sh
