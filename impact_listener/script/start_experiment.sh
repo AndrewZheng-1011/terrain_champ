@@ -5,7 +5,7 @@
 #       1) Representing more action (side to side or left and then right repeated)
 #               - Or clockwise and counterclockwise
 #       2) Modify xacro file of champ s.t. can change kp and kd values through script
-environment='emptyWorld'
+environment='rampWorld'
 worldFilePath="/home/andrewzheng1011/champ_ws/src/terrain_champ/impact_listener/worlds/rampWorld_kp_100e10_kd_100.world"
 #"/home/andrewzheng1011/champ_ws/src/impact_listener/worlds/planeWorld.world"
 
