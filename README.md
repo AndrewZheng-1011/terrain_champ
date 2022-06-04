@@ -60,6 +60,9 @@ Results showcase that increase in commanded velocity of champ increases the swin
 
 Quantitative analysis is left to be done in future works.
 
+## Additional Details ##
+- To run readSimData.ipynb and get the resulting graphs, must collect the data specified in code
+
 ## Notes/Future Works: ##
 - Apply rosbag to record states
 - Work on making plots on the trajectory difference of different terrains
