@@ -53,7 +53,8 @@ The interpretation of these graphs can be summarized by the following:
 
 Quantitative analysis is left to be done in future works.
 
-## Notes/To Do: ##
+## Notes/Future Works: ##
 - Apply rosbag to record states
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
+- Preprocess impact data (i.e. get force profiles from quadruped locomotion)
