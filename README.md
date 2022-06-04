@@ -1,5 +1,5 @@
 # terrain_champ
-The goal of this repository is to provide a dataset of quadruped locomotion on different terrain profiles/paramters. The dataset consists of champ quadruped walking different ground parameters/terrain simulated on the Gazebo platform. Different gait patterns (forward, left, right, backward), commanded velocities, ground parameters, and terrain profiles are simulated within this dataset.
+The goal of this repository is to provide a dataset of quadruped locomotion on different terrain profiles/paramters. The dataset consists of champ quadruped walking on different ground parameters/terrain simulated on the Gazebo platform. Different gait patterns (forward, left, right, backward), commanded velocities, ground parameters, and terrain profiles are simulated within this dataset.
 
 **Keywords:** Dataset, Legged Robots, Quadruped, Terrain Parameters
 
