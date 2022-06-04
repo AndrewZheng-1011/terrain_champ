@@ -46,7 +46,7 @@ For quadruped locomotion in different terrains, different initial condition duri
 ![terrain_graph](doc/diff_Terrain_LowerLegPos.png)
 
 ### Terrain Parameters
-Stiffness and damping parameteres are defined by the stiffness and damping tags in sdf models (k<sub>p</sub> and k<sub>d</sub>.
+Stiffness and damping parameteres are defined by the stiffness and damping tags in world files (k<sub>p</sub> and k<sub>d</sub>.
 From the graph, increase in damping affect is seen to hinder the quadruped swing and stance duration.
 ![kp_graph](doc/varying_kp_LowerLegPos.png)
 ![kd_graph](doc/varying_kd_LowerLegPos.png)
@@ -70,3 +70,4 @@ Quantitative analysis is left to be done in future works.
 - Work on making plots on the trajectory difference of different terrains
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
 - Preprocess impact data (i.e. get force profiles from quadruped locomotion)
+- Create process to change terrain parameters defineed in sdf files in models directory
