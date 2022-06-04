@@ -22,7 +22,7 @@ source <your_ws>/devel/setup.bash
 ### Add mesh files to Gazebo model path ###
 ```
 gedit ~/.bashrc
-export GAZEBO_MODEL_PATH=~/<workspace_direction>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
+export GAZEBO_MODEL_PATH=~/<workspace_directory>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
 ```
 
 ## Quick Start ##
