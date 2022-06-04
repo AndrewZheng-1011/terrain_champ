@@ -37,12 +37,11 @@ The data that can be collected through the shell script ranges by changing these
 - Damping factor - Damping parameter defined in the model (plane/ramp)
 - Action - Shell script loops through forward, left, right, and backward gait motion
 - Commanded velocity - Shell script loops through velocities ranging from 0.1m/s to 0.7 m/s
-
-The interpretation of these graphs can be summarized by the following:
+**The interpretation of these graphs can be summarized by the following:**
 - Increased velocity of champ increases the rate of swing phase for quadruped. Stance phase is neglected here as champ controller defines a fixed stance duration
 ![lowerLegPosGraph](doc/cmdLowerLegPos.png)
 ![lowerLegVelGraph](doc/cmdLowerLegVelGraph.png)
-- Different gait motions can be identified. Additionally, it is trivial to see inherent hybrid system of quadruped locomotion
+- Different gait motions can be identified. Additionally, it is trivial to see the inherent hybrid system of quadruped locomotion
 ![gaitPatternLowerLegGraph](doc/gaitPatternLowerLegPos.png)
 - Terrain parameters will affect the swing and stance gait motion of quadruped. For damping parameters, increase in damping affects the hinders the quadruped's swing and stance duration
 ![kp_graph](doc/varying_kp_LowerLegPos.png)
