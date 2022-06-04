@@ -45,7 +45,7 @@ The data that can be collected through the shell script ranges by changing these
 - World - Currently support planar world and a ramp world
 - Terrain Parameters - Stiffness and damping parameters are defined within the model sdf files (plane/ramp)
 - Action - Shell script loops through forward, left, right, and backward gait motion
-- Commanded velocity - Shell script loops through velocities ranging from 0.1m/s to 0.7 m/s
+- Commanded CoM Velocity - Shell script loops through velocities ranging from 0.1m/s to 0.7 m/s
 
 ### World ###
 Currently supports a 2 deg ramp profile and planar world. A graph represented of quadruped locomotion on different worlds is shown below. 
