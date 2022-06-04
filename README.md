@@ -62,7 +62,7 @@ From the graph, increase in damping affect is seen to hinder the quadruped swing
 Different gait motion is defined through shell script. Currently, shell script only runs through the actions forward, left, right, and backwards.
 ![gaitPatternLowerLegGraph](doc/gaitPatternLowerLegPos.png)
 
-### Commanded Velocity ###
+### Commanded CoM Velocity ###
 Results showcase that increase in commanded velocity of champ increases the swing phase. Stance phase is consistent as champ controller is predefines a fixed stance duration.
 ![lowerLegPosGraph](doc/cmdLowerLegPos.png)
 ![lowerLegVelGraph](doc/cmdLowerLegVelGraph.png)
