@@ -6,7 +6,7 @@
 #               - Or clockwise and counterclockwise
 #       2) Modify xacro file of champ s.t. can change kp and kd values through script
 environment='emptyWorld'
-worldFilePath="/home/andrewzheng1011/champ_ws/src/terrain_champ/impact_listener/worlds/emptyWorld.world"
+worldFilePath="/home/andrewzheng1011/champ_ws/src/terrain_champ/impact_listener/worlds/rampWorld_kp_100e10_kd_100.world"
 #"/home/andrewzheng1011/champ_ws/src/impact_listener/worlds/planeWorld.world"
 
 time2Term="7" # seconds
@@ -17,7 +17,7 @@ spawnHeight="0.6" # Spawn height for plane > 1.0m and < 1.5m (#1.2 seems good fo
 
 for action in "${actions[@]}"
 do
-        for speedMult in {1..7} # Base speed: 0.1 with speed_mult --> speed = base * speedMult
+        for speedMult in {1..2} # Base speed: 0.1 with speed_mult --> speed = base * speedMult
         do
                 if [ $speedMult -eq 1 ]
                 then

@@ -2,13 +2,14 @@
     <!-- WIP:
             1) Use a yaml file to load all the parameters and then pass these as arguments???
                 - Not sure the most optimal method for setting up architecture with many arguments
-            2) Use topic remapping for multiple impact listener for cleanness
+            2) Use topic remapping for multiple impact listener to cleanup code
             3) Fix the fact that impact listener gets quad command as argument instead of parameter
                 - Redundancy with quad_cmd atm
     -->
 
     
     <!-- Simulation Arguments -->
+    <arg name="description_file" default="$(find champ_description)/urdf/champ_test.urdf"/> <!-- Enable change in urdf-->
     <arg name="worldFile"       default="$(find impact_listener)/worlds/planeWorld_kp_100e10_kd_0.world"/>
     <!--arg name="worldFile"           default="$(find impact_listener)/worlds/planeWorld_kp_100e10_kd_500.world"/-->
     <param name="worldFile" type="str" value="$(arg worldFile)"/> <!-- Load worldfile path into param server-->
@@ -17,6 +18,7 @@
     <arg name="use_sim_time"    default="true"/>
     <arg name="headless"        default="false"/>
     <arg name="gui"             default="true"/>
+    
 
     <!-- Arguments different impact of each corresponding leg-->
     <arg name="lf_suffix" default="lf"/>
@@ -50,6 +52,7 @@
         <arg name="headless"     value="$(arg headless)"/>
         <arg name="gui"          value="$(arg gui)"/>
         <arg name="world_init_z" value="$(arg height_spawn)"/>
+        <arg name="description_file"    value="$(arg description_file)"/>
     </include>
 
     <include file="$(find champ_teleop)/launch/teleop.launch"/>
