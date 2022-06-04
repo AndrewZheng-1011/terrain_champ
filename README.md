@@ -1,4 +1,5 @@
 # terrain_champ
+![overview](doc/overview.png)
 The goal of this repository is to provide a dataset of quadruped locomotion on different terrain profiles/parameters. The dataset consists of joints states and ground reaction forces from champ walking on different ground parameters/terrain simulated on the Gazebo platform. Different gait patterns (forward, left, right, backward), commanded velocities, ground parameters, and terrain profiles are simulated within this dataset.
 
 Dependencies consist of ROS melodic with gazebo-9 on Ubuntu 18.04. To be able to run the shell script to collect data, you must create a catkin workspace. Follow the tutorial of creating a workspace on the ROS website.
