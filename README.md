@@ -64,7 +64,7 @@ Different gait motion is defined through shell script. Currently, shell script o
 ![gaitPatternLowerLegGraph](doc/gaitPatternLowerLegPos.png)
 
 ### Commanded CoM Velocity ###
-Results showcase that increase in commanded velocity of champ increases the swing phase. Stance phase is consistent as champ controller is predefines a fixed stance duration.
+Results showcase that increase in commanded velocity of champ increases the swing phase. Stance phase is consistent as champ controller predefines a fixed stance duration.
 ![lowerLegPosGraph](doc/cmdLowerLegPos.png)
 ![lowerLegVelGraph](doc/cmdLowerLegVelGraph.png)
 
