@@ -78,4 +78,4 @@ Quantitative analysis is left to be done in future works.
 - Apply rosbag to record states
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
 - Preprocess impact data (i.e. get force profiles from quadruped locomotion)
-- Create process to change terrain parameters defineed in sdf files in models directory
+- Create process to change terrain parameters defined in sdf files in models directory
