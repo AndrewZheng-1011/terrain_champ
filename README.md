@@ -11,7 +11,7 @@ Dependencies consist of ROS melodic with gazebo-9 on Ubuntu 18.04. To be able to
 ### Install Dependencies ###
 ```
 sudo apt install -y python-rosdep
-cd <your_ws>/src
+cd ~/<your_ws>/src
 git clone --recursive https://github.com/AndrewZheng-1011/terrain_champ.git
 git clone https://github.com/chvmp/champ_teleop
 cd ..
@@ -19,7 +19,7 @@ rosdep install --from-paths src --ignore-src -r -y
 ```
 ### Build workspace ###
 ```
-cd <your_ws>
+cd ~/<your_ws>
 catkin_make
 source <your_ws>/devel/setup.bash
 ```
@@ -30,8 +30,16 @@ export GAZEBO_MODEL_PATH=~/<workspace_directory>/src/terrain_champ/impact_listen
 ```
 
 ## Quick Start ##
-Quick start will run the champ simulator across default terrain (specified in the shell file) for different gaits and commanded velocity. This shell script will simulate different environments/actions and collect quadruped joint states and grf (ground reaction forces) during locomotion. The recorded data will then be located in the data directory.
+### Launch ###
+The roslaunch file will run the champ simulator across default terrain (specified in the shell file) for default gait (forward) and commanded velocity (0.5m/s). The corresponding recorded data will be located in the data directory
 ```
+cd ~/<your_catkin_ws>
+roslaunch impact_listener start.launch
+```
+### Shell Script ###
+The shell script will run the champ simulator across default terrain (specified in the shell file) for different gaits and commanded velocity. This script simulates different environments/actions and collect quadruped joint states and grf (ground reaction forces) during locomotion. The recorded data will then be located in the data directory.
+```
+cd ~/<your_ws>
 roscd impact_listener/script/
 ./start_experiment.sh
 ```
@@ -79,3 +87,4 @@ Quantitative analysis is left to be done in future works.
 - Make impact_listener/src files robust when no data directory (i.e. try: os.mkdir  (...) except (...))
 - Preprocess impact data (i.e. get force profiles from quadruped locomotion)
 - Create process to change terrain parameters defined in sdf files in models directory
+- Enable different physics engine (e.g. ode, pybullet, etc.)
