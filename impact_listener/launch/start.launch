@@ -2,7 +2,8 @@
     <!-- WIP:
             1) Use a yaml file to load all the parameters and then pass these as arguments???
                 - Not sure the most optimal method for setting up architecture with many arguments
-            2) Use topic remapping for multiple impact listener for cleanness
+            2a) Use topic remapping for multiple impact listener for cleanness
+            2b) Use group ns to get different nodes ran by the same node
             3) Fix the fact that impact listener gets quad command as argument instead of parameter
                 - Redundancy with quad_cmd atm
     -->
