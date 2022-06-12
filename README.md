@@ -13,7 +13,6 @@ Dependencies consist of ROS melodic with gazebo-9 on Ubuntu 18.04. To be able to
 sudo apt install -y python-rosdep
 cd ~/<your_ws>/src
 git clone --recursive https://github.com/AndrewZheng-1011/terrain_champ.git
-git clone https://github.com/chvmp/champ_teleop
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
 ```
@@ -24,11 +23,15 @@ catkin_make
 source <your_ws>/devel/setup.bash
 ```
 ### Add mesh files to Gazebo model path ###
+Add model files into gazebo model path through ~/.bashrc
 ```
 gedit ~/.bashrc
 export GAZEBO_MODEL_PATH=~/<workspace_directory>/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
 ```
-
+If there is already an existing path export to gazebo model path, add to the existing path
+```
+export GAZEBO_MODEL_PATH=:/existing/model/path:~/<workspace_directory>/src/terrain_champ/impact_listener/models
+```
 ## Quick Start ##
 ### Launch ###
 The roslaunch file will run the champ simulator across default terrain (specified in the shell file) for default gait (forward) and commanded velocity (0.5m/s). The corresponding recorded data will be located in the data directory
