@@ -7,7 +7,7 @@ Dependencies consist of ROS melodic with gazebo-9 on Ubuntu 18.04. To be able to
 
 **Keywords:** Dataset, Legged Robots, Quadruped, Terrain Parameters
 
-## Installation (To be tested): ##
+## Installation ##
 ### Install Dependencies ###
 ```
 sudo apt install -y python-rosdep
