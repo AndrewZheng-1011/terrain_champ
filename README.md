@@ -91,3 +91,4 @@ Quantitative analysis is left to be done in future works.
 - Preprocess impact data (i.e. get force profiles from quadruped locomotion)
 - Create process to change terrain parameters defined in sdf files in models directory
 - Enable different physics engine (e.g. ode, pybullet, etc.)
+- Creating preprocess script for GRF
