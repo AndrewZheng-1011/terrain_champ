@@ -92,3 +92,4 @@ Quantitative analysis is left to be done in future works.
 - Create process to change terrain parameters defined in sdf files in models directory
 - Enable different physics engine (e.g. ode, pybullet, etc.)
 - Create preprocess script for GRF
+- Synchronize data from subscription for easier preprocess
