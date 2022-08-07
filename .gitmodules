@@ -10,3 +10,6 @@
 [submodule "robot_state_plugin"]
 	path = robot_state_plugin
 	url = https://github.com/chvmp/robot_state_plugin.git
+[submodule "robots/descriptions/unitree_ros"]
+	path = robots/descriptions/unitree_ros
+	url = https://github.com/chvmp/unitree_ros
