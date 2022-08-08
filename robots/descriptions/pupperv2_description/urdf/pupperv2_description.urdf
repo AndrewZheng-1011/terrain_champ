@@ -211,7 +211,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://pupperv2_description/obj_meshes/Cube003.obj"/>
+        <mesh filename="package://pupperv2_description/obj_meshes/Body_Assembly_v3.obj"/>
       </geometry>
     </collision>
   </link>
@@ -839,4 +839,3 @@
     <minDepth>0.001</minDepth>
   </gazebo>
 </robot>
-
