@@ -93,3 +93,4 @@ Quantitative analysis is left to be done in future works.
 - Enable different physics engine (e.g. ode, pybullet, etc.)
 - Create preprocess script for GRF
 - Synchronize data from subscription for easier preprocess
+- Create new rosmsg or plugin to record the states altogether
