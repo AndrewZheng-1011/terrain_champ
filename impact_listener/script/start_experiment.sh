@@ -5,9 +5,9 @@
 #       1) Representing more action (side to side or left and then right repeated)
 #               - Or clockwise and counterclockwise
 #       2) Modify xacro file of champ s.t. can change kp and kd values through script
-description_file="/home/andrewzheng1011/champ_ws/src/terrain_champ/champ/champ_description/urdf/champ.urdf.xacro"
+description_file="$HOME/champ_ws/src/terrain_champ/champ/champ_description/urdf/champ.urdf.xacro"
 environment='emptyWorld'
-worldFilePath="/home/andrewzheng1011/champ_ws/src/terrain_champ/impact_listener/worlds/emptyWorld.world"
+worldFilePath="$HOME/champ_ws/src/terrain_champ/impact_listener/worlds/emptyWorld.world"
 #"/home/andrewzheng1011/champ_ws/src/impact_listener/worlds/planeWorld.world"
 
 time2Term="120" # seconds
