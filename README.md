@@ -15,7 +15,7 @@ mkdir -p ~/champ_ws/src
 cd ~/champ_ws
 catkin_make
 source ~/champ_ws/devel/setup.bash
-
+```
 ### Install Dependencies ###
 ```
 sudo apt install -y python-rosdep
@@ -26,7 +26,6 @@ rosdep install --from-paths src --ignore-src -r -y
 cd ~/champ_ws
 catkin_make
 source ~/champ_ws/devel/setup.bash
-```
 ```
 ### Add mesh files to Gazebo model path ###
 Add model files into gazebo model path through ~/.bashrc
