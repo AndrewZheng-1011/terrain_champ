@@ -34,7 +34,8 @@ Add model files into gazebo model path through ~/.bashrc
 gedit ~/.bashrc
 export GAZEBO_MODEL_PATH=~/champ_ws/src/terrain_champ/impact_listener/models:${GAZEBO_MODEL_PATH}
 ```
-If there is already an existing path export to gazebo model path, add to the existing path
+If there is already an existing path export to gazebo model path, add to the existing path.
+Remark: Note you must modify this command line
 ```
 export GAZEBO_MODEL_PATH=<~/existing/model/path>:~/champ_ws/src/terrain_champ/impact_listener/models
 ```
